@@ -1,0 +1,31 @@
+<section>
+    <div class="form-body">
+        <div class="form-div">
+            <div class="top">
+                <h3>SIGN IN</h3>
+                <p>{{#if success}}{{success}}{{else}}Login Account{{/if}}</p>
+            </div>
+            <form action="/sign-in" id="user-sing-in" method="post">
+                <div class="form">
+
+                    <div class="inputs">
+                        <input id="input-for3" class="text-input" type="email" name="emailId" required>
+                        <label for="input-for3">Email Address</label>
+                    </div>
+                    <div class="inputs">
+                        <input id="password" class="text-input" type="password" name="password" required>
+                        <label for="password">Password</label>
+                    </div>
+
+                </div>
+                <div class="bottom">
+                    <button type="submit" class="btn btn-primary w-100 fw-bold">Sign In</button>
+                    <p id="alert" class="alert {{#if error}}{{else}}alert-none{{/if}}"><i
+                            class="bi bi-x-circle-fill"></i> {{error}}</p>
+
+                    <p>Don't have an account? <a href="/sign-up">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

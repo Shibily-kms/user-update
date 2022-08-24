@@ -1,0 +1,57 @@
+{{!-- User List --}}
+<section>
+    <div class="container">
+        <div class="user-list mt-5">
+            <div class="top d-flex justify-content-end">
+                <a href="/admin"><button class="btn btn-primary btn-mode-1 mx-1 "><i class="bi bi-house-fill"></i>
+                        Home</button></a>
+                <a href="/admin/user-list"><button class="btn btn-primary btn-mode-1 mx-1"><i
+                            class="bi bi-arrow-clockwise"></i> Refresh</button></a>
+                <a href="/admin/add-user"><button class="btn btn-mode-green  btn-primary mx-1"><i
+                            class="bi bi-plus-circle-dotted"></i> Add user</button></a>
+            </div>
+            <h3 class="text-center mt-5">User List</h3>
+            <div class="table-div ">
+                <table id="table_id" class="table table-striped table-hover css-serial">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sl no</th>
+                            {{!-- <th scope="col">Id</th> --}}
+                            <th scope="col">Full name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Control</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each allUsers}}
+                        <tr>
+                            <td scope="row"></td>
+                            {{!-- <td>{{this._id}}</td> --}}
+                            <td>{{this.firstName}} {{this.lastName}}</td>
+                            <td>{{this.emailId}}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="/admin/edit-user/{{this._id}}" type="button" title="Edit user"
+                                        class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
+                                    <a href="/admin/remove-user/{{this._id}}"
+                                        onclick="return confirm('Are you remove this user?')" type="button"
+                                        title="Remove user" class="btn  btn-danger"><i class="bi bi-trash3"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+    });
+</script>

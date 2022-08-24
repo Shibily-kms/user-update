@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+ 
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* demmi  */
+.text-input{
+  font-size: 14px;
+  padding: 7px 8px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: none;
+  border: solid black 1px;
+  outline: none;
+}
+
+
+/* Automatic Serial Number Row */
+.css-serial {
+  counter-reset: serial-number; /* Set the serial number counter to 0 */
+ }
+ .css-serial td:first-child:before {
+  counter-increment: serial-number; /* Increment the serial number counter */
+  content: counter(serial-number); /* Display the counter */
+ }

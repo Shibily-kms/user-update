@@ -1,0 +1,41 @@
+<section>
+    <div class="form-body">
+        <div class="form-div">
+            <div class="top">
+                <h3>SIGN UP</h3>
+                <p>Create new account</p>
+            </div>
+            <form action="/sign-up"  id="user-sing-up" method="post" onsubmit="return userSingUp()">
+                <div class="form">
+                    <div class="inputs">
+                        <input class="text-input" id="input-for1" type="text" name="firstName" required>
+                        <label for="input-for1">First name</label>
+                    </div>
+                    <div class="inputs">
+                        <input id="input-for2" class="text-input" type="text" name="lastName" required>
+                        <label for="input-for2">Last name</label>
+                    </div>
+                    <div class="inputs">
+                        <input id="input-for3" class="text-input" type="email" name="emailId" required>
+                        <label for="input-for3">Email Address</label>
+                    </div>
+                    <div class="inputs">
+                        <input id="password" class="text-input" type="password" name="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="inputs">
+                        <input id="confirem" class="text-input" type="text" required>
+                        <label for="confirem">Confirm password</label>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <button type="submit" class="btn btn-primary w-100 fw-bold">Sign Up</button>
+                    <p id="alert" class="alert {{#if error}}{{else}}alert-none{{/if}}"><i class="bi bi-x-circle-fill"></i> {{error}}</p>
+                    <p>Already have an account? <a href="/sign-in">Sign in</a></p>
+              
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+

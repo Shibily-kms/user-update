@@ -1,0 +1,60 @@
+{{!-- Add user --}}
+<section>
+    <div class="container">
+        <div class="user-list add-user mt-5">
+            <div class="top d-flex justify-content-between">
+                <div>
+                    <a href="/admin/user-list"><button class="btn btn-primary btn-mode-1 mx-1"><i
+                                class="bi bi-chevron-left"></i> Back</button></a>
+                </div>
+                <div>
+
+                    <a href="/admin"><button class="btn btn-primary btn-mode-1 mx-1 "><i class="bi bi-house-fill"></i>
+                            Home</button></a>
+                    <a href="/admin/add-user"><button class="btn btn-primary btn-mode-1 mx-1"><i
+                                class="bi bi-arrow-clockwise"></i> Refresh</button></a>
+                </div>
+
+            </div>
+            <h3 class="text-center mt-5">Create new User</h3>
+            <div class="create-form">
+                <div class="form-div">
+
+                    <form action="/admin/add-user" id="user-sing-up" method="post" onsubmit="return userSingUp()">
+                        <div class="form">
+                            <div class="inputs">
+                                <input class="text-input" id="input-for1" type="text" name="firstName" required>
+                                <label for="input-for1">First name</label>
+                            </div>
+                            <div class="inputs">
+                                <input id="input-for2" class="text-input" type="text" name="lastName" required>
+                                <label for="input-for2">Last name</label>
+                            </div>
+                            <div class="inputs">
+                                <input id="input-for3" class="text-input" type="email" name="emailId" required>
+                                <label for="input-for3">Email Address</label>
+                            </div>
+                            <div class="inputs">
+                                <input id="password" class="text-input" type="password" name="password" required>
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="inputs">
+                                <input id="confirem" class="text-input" type="text" required>
+                                <label for="confirem">Confirm password</label>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <button type="submit" class="btn btn-primary w-100 fw-bold">Create</button>
+                            <p id="alert" class="alert {{#if error}}{{else}}alert-none{{/if}}"><i
+                                    class="bi bi-x-circle-fill"></i> {{error}}</p>
+                            {{#if success}}
+                            <p id="alert" class="alert-success-small"><i class="bi bi-check-circle-fill"></i>
+                                {{success}}</p>
+                            {{/if}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
