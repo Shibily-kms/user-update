@@ -56,15 +56,20 @@ module.exports = {
 
     editUserData: (body) => {
         return new Promise((resolve, reject) => {
-
-            db.get().collection(collection.USER_COLLECTION).updateOne({ _id: ObjectId(body.id) }, {
-                $set: {
-                    firstName: body.firstName,
-                    lastName: body.lastName,
-                    emailId: body.emailId
+            db.get().collection(collection.USER_COLLECTION).findOne({ emailId: body.emailId }).then((result) => {
+                if(result){
+                    resolve({error : true})
+                }else{
+                    db.get().collection(collection.USER_COLLECTION).updateOne({ _id: ObjectId(body.id) }, {
+                        $set: {
+                            firstName: body.firstName,
+                            lastName: body.lastName,
+                            emailId: body.emailId
+                        }
+                    }).then(() => {
+                        resolve()
+                    })
                 }
-            }).then(() => {
-                resolve()
             })
 
         })

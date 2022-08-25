@@ -20,29 +20,35 @@
             <div class="create-form">
                 <div class="form-div">
 
-                    <form action="/admin/edit-user/{{data._id}}" id="user-sing-up" method="post" >
+                    <form action="/admin/edit-user/{{data._id}}" id="user-sing-up" method="post">
                         <div class="form">
                             <div class="inputs">
-                                <input class="text-input" id="input-for1" type="text" name="firstName" value="{{data.firstName}}" required>
+                                <input class="text-input" id="input-for1" type="text" name="firstName"
+                                    value="{{data.firstName}}" required>
                                 <label for="input-for1">First name</label>
                             </div>
-                            
+
                             <div class="inputs">
-                                <input id="input-for2" class="text-input" type="text" name="lastName" value="{{data.lastName}}" required>
+                                <input id="input-for2" class="text-input" type="text" name="lastName"
+                                    value="{{data.lastName}}" required>
                                 <label for="input-for2">Last name</label>
                             </div>
                             <div class="inputs">
-                                <input id="input-for3" class="text-input"  type="email" name="emailId" value="{{data.emailId}}" required>
+                                <input id="input-for3" class="text-input" type="email" name="emailId"
+                                    value="{{data.emailId}}" required>
                                 <label for="input-for3">Email Address</label>
                             </div>
-                           
+
                         </div>
                         <div class="bottom">
                             <button type="submit" class="btn btn-primary w-100 fw-bold">Submit</button>
-                            
+
                             {{#if success}}
                             <p id="alert" class="alert-success-small"><i class="bi bi-check-circle-fill"></i>
                                 {{success}}</p>
+                            {{/if}}
+                            {{#if error}}
+                            <p id="alert" class="alert "><i class="bi bi-x-circle-fill"></i> {{error}}</p>
                             {{/if}}
                         </div>
                     </form>

@@ -69,7 +69,10 @@ router.get('/edit-user/:id', validAdmin, (req, res) => {
     if (req.session.success) {
       res.render('admin/edit-user', { title: "Edit user | Admin panel", data, "success": req.session.success })
       req.session.success = false
-    } else {
+    } else if(req.session.error) {
+      res.render('admin/edit-user', { title: "Edit user | Admin panel", data, "error": req.session.error  })
+      req.session.error = false
+    }else{
       res.render('admin/edit-user', { title: "Edit user | Admin panel", data })
     }
   })
@@ -79,8 +82,14 @@ router.post('/edit-user/:id', validAdmin, (req, res) => {
   let id = req.params.id
   req.body.id = id
   adminHelpers.editUserData(req.body).then((response) => {
-    req.session.success = "Successfully changed"
-    res.redirect('/admin/edit-user/' + id)
+    if(response){
+      req.session.error = "This Email existed"
+      res.redirect('/admin/edit-user/' + id)
+    }else{
+      req.session.success = "Successfully changed"
+      res.redirect('/admin/edit-user/' + id)
+      
+    }
 
   })
 })
@@ -110,7 +119,7 @@ router.get('/add-user', validAdmin, (req, res) => {
 router.post('/add-user', validAdmin, (req, res) => {
   userHelpers.toSingUp(req.body).then((response) => {
     if (response) {
-      req.session.error = "This Email already userd"
+      req.session.error = "This Email existed"
       res.redirect('/admin/add-user');
     } else {
       req.session.success = "New user created"
